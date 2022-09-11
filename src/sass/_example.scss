@@ -1,28 +1,166 @@
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  background-color: #fff;
-  color: #2f2f37;
-  max-width: 960px;
-  padding: 16px;
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgb(237, 241, 246);
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #ff6b0a;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+// .search-form {
+//   background: hs1(0 -3% 14%);
+//   padding: 16px 24px;
+//   position: relative;
+//   box-shadow: 0 0 0 1px rgba(0, 0, 0, .01);
+
+//   &::after {
+//     position: absolute;
+//     content: "";
+//     top: 5px;
+//     left: 0;
+//     right: 0;
+//     z-index: -1;
+//     height: 100%;
+//     width: 100%;
+//     transform: scale(0.9) translateZ(0);
+//     filter: blur(20px);
+//     background: linear-gradient(to left, #ff5770, #e4428d, #c42da8, #9e16c3, #c42da8, #e4428d, #ff5770);
+//     background-size: 200% 200%;
+//     animation: animateGlow 1.25s linear infinite;
+//   }
+// }
+
+// @keyframes animateGlow {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   100% {
+//     background-position: 200% 50%;
+//   }
+// }
+
+.search-form__input {
+  width: 500px;
+  height: 100%;
+  border-radius: 10px;
 }
 
-.example .background {
-  height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
-  background-image: url('../images/logo.png');
-  background-size: cover;
-  background-position: center;
+.search-btn {
+  padding: 12px;
+  width: 190px;
+  cursor: pointer;
+  background: #799be6;
+  color: white;
+  transition: .5s ease;
+  border-radius: 10px;
+
+  &:hover {
+    background: transparent;
+    border: 2px solid #799be6;
+    color: black;
+    box-shadow: 0 0 10px 0 #799be6 inset, 0 0 10px 4px #799be6; 
+  }
+}
+
+.search-btn:active {
+  background-color: #a7c8cf;
+  transform: translateY(4px);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -10px;
+  margin-left: -10px;
+  padding: 60px 10px 10px 10px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc((100% / 4) - 30px);
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.7);
+
+    transition: transform 400ms ease-out;
+      &:hover {
+        transform: scale(1.05);
+      }
+  }
+
+  &__link {
+    flex-grow: 1;
+    cursor: pointer;
+    
+  }
+
+  &__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;    
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+.info {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+
+  &__label {
+    margin-bottom: 5px;
+  }
+}
+
+.load-more {
+  display: none;
+  margin: 10px auto;
+  padding: 12px;
+  width: 190px;
+  cursor: pointer;
+  background: #799be6;
+  color: white;
+  transition: .5s ease;
+  border-radius: 10px;
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    border: 2px solid #799be6;
+    color: black;
+    box-shadow: 0 0 10px 0 #799be6 inset, 0 0 10px 4px #799be6; 
+  }
+}
+
+// .load-more:hover {
+//   background-color: #3e868e
+// }
+
+// .load-more:active {
+//   background-color: #3e8e41;
+//   transform: translateY(4px);
+// }
+
+#scrollToTop {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  bottom: 20px;
+  right: 5px;
+  font-weight: bold;
+  font-size: 40px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.5s ease-in;
 }
