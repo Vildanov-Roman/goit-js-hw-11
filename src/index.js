@@ -8,7 +8,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchForm = document.querySelector(".search-form");
 const searchFormInput = document.querySelector(".search-form__input");
-const loadMore = document.querySelector(".load-more");
+// const loadMore = document.querySelector(".load-more");
 const gallery = document.querySelector(".gallery");
 
 let pagination;
@@ -29,10 +29,10 @@ function onSearch(e) {
   gallery.innerHTML = ""; 
 }
 
-function onloadMore() {
-  pagination += 1;
-  searchingImages();
-}
+// function onloadMore() {
+//   pagination += 1;
+//   searchingImages();
+// }
 //переписать на asinc/await
 function searchingImages() {
     getImg(searchFormInput.value, pagination)
@@ -80,7 +80,7 @@ function renderImages({hits, totalHits}) {
   lightbox = new SimpleLightbox(".gallery__item a");
 
   displayedImages += hits.length;
-  imgLeft();
+  // imgLeft();
 
   if (displayedImages === 0) {
     Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
@@ -109,8 +109,10 @@ function renderImages({hits, totalHits}) {
 function infinityScroll() {  
   const documentRect = document.documentElement.getBoundingClientRect();
   if(documentRect.bottom < document.documentElement.clientHeight + 150) {
-    searchingImages()
-    onloadMore()
+    pagination += 1;
+    searchingImages();
+    // searchingImages()
+    // onloadMore()
 
     window.onscroll = function() {
       let scrollElem = document.getElementById("scrollToTop");
@@ -121,16 +123,17 @@ function infinityScroll() {
       }
     }
 
-    let timeOut;
-    function goUp() {
-    let top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
-    if(top > 0) {
-        window.scrollBy(0, -100);
-        timeOut = setTimeout('goUp()', 20);
-      } else clearTimeout(timeOut);
-    }
+    // let timeOut;
+    // function goUp() {
+    // let top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    // if(top > 0) {
+    //     window.scrollBy(0, -100);
+    //     timeOut = setTimeout('goUp()', 20);
+    //   } else clearTimeout(timeOut);
+    // }
   }
 };
+//
 
 
 
