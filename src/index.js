@@ -108,10 +108,10 @@ function renderImages({hits, totalHits}) {
 
 function infinityScroll() {  
   const documentRect = document.documentElement.getBoundingClientRect();
-  if(documentRect.bottom <= document.documentElement.clientHeight) {
-    
+  if(documentRect.bottom <= document.documentElement.clientHeight) {   
     
     onloadMore()
+    
 
     window.onscroll = function() {
       let scrollElem = document.getElementById("scrollToTop");
