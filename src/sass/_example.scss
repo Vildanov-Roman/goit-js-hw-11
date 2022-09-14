@@ -151,16 +151,50 @@
 //   transform: translateY(4px);
 // }
 
-#scrollToTop {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  bottom: 50px;
-  right: 5px;
-  font-weight: bold;
-  font-size: 40px;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.5s ease-in;
+#toTop {
+	position: fixed;
+	display: inline-block;
+	bottom: 10px;
+	right: -40px;
+	width: 40px;
+	height: 40px;
+	z-index: 2;
+	cursor: pointer;
+	text-align: center;
+	color: #fff;
+  border: 1px solid black;
+	border-radius: 5px;
+	background: #799be6;
+	box-shadow: 0 0 0 3px rgba(0,0,0,.2);
+	opacity: 0;
+	visibility: hidden;
+  transition: all .3s ease-in-out;
+
+    &:hover {
+      background: transparent;
+      border: 2px solid #799be6;
+      color: black;
+      box-shadow: 0 0 10px 0 #799be6 inset, 0 0 10px 4px #799be6; 
+    }
+}
+
+#toTop svg {
+	position: relative;
+	top: 12px;
+	right: -1px;
+	fill: #fff;
+	transition: all .3s ease-in-out;
+}
+
+#toTop:hover svg {
+	cursor: pointer;
+	fill: rgb(0, 0, 0);
+	transition: all .3s ease-in-out;
+}
+
+#toTop.show {
+	opacity: 1;
+	visibility: visible;
+	right: calc(2%);
 }
 
