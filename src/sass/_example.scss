@@ -134,8 +134,7 @@
   transition: .5s ease;
   border-radius: 10px;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: transparent;
     border: 2px solid #799be6;
     color: black;
